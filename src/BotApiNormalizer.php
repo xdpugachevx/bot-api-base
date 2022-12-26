@@ -15,6 +15,7 @@ use Symfony\Component\Serializer\Serializer;
 use TgBotApi\BotApiBase\Normalizer\AnswerInlineQueryNormalizer;
 use TgBotApi\BotApiBase\Normalizer\EditMessageMediaNormalizer;
 use TgBotApi\BotApiBase\Normalizer\EditMessageResponseNormalizer;
+use TgBotApi\BotApiBase\Normalizer\GetUpdatesNormalizer;
 use TgBotApi\BotApiBase\Normalizer\InputFileNormalizer;
 use TgBotApi\BotApiBase\Normalizer\InputMediaNormalizer;
 use TgBotApi\BotApiBase\Normalizer\InvoiceNormalizer;
@@ -78,6 +79,7 @@ class BotApiNormalizer implements NormalizerInterface
         }
 
         $serializer = new Serializer([
+            new GetUpdatesNormalizer($objectNormalizer),
             new PollNormalizer($objectNormalizer),
             new InvoiceNormalizer($objectNormalizer),
             new SetMyCommandsNormalizer($objectNormalizer),
