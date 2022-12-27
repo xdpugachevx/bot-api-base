@@ -18,4 +18,6 @@ interface HasUpdateTypeVariableInterface
     public const TYPE_CALLBACK_QUERY = 'callback_query';
     public const TYPE_SHIPPING_QUERY = 'shipping_query';
     public const TYPE_PRE_CHECKOUT_QUERY = 'pre_checkout_query';
+    public const TYPE_MY_CHAT_MEMBER = 'my_chat_member';
+    public const TYPE_CHAT_MEMBER = 'chat_member';
 }
