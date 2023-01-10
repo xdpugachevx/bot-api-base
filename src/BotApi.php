@@ -7,6 +7,7 @@ namespace TgBotApi\BotApiBase;
 use TgBotApi\BotApiBase\Exception\ResponseException;
 use TgBotApi\BotApiBase\Method\CloseMethod;
 use TgBotApi\BotApiBase\Method\CopyMessageMethod;
+use TgBotApi\BotApiBase\Method\CreateChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\ExportChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\Interfaces\MethodInterface;
 use TgBotApi\BotApiBase\Method\LogOutMethod;
@@ -15,6 +16,7 @@ use TgBotApi\BotApiBase\Method\SendMediaGroupMethod;
 use TgBotApi\BotApiBase\Method\StopPollMethod;
 use TgBotApi\BotApiBase\Traits\AliasMethodTrait;
 use TgBotApi\BotApiBase\Traits\GetMethodTrait;
+use TgBotApi\BotApiBase\Type\ChatInviteLinkType;
 use TgBotApi\BotApiBase\Type\FileType;
 use TgBotApi\BotApiBase\Type\MessageIdType;
 use TgBotApi\BotApiBase\Type\MessageType;
@@ -80,6 +82,17 @@ class BotApi implements BotApiInterface
 
         return $type ? $this->normalizer->denormalize($json->result, $type) : $json->result;
     }
+
+    /**
+     * @throws ResponseException
+     * 
+     * @return ChatInviteLinkType
+     */
+    public function createChatInviteLink(CreateChatInviteLinkMethod $method): ChatInviteLinkType
+    {
+        return $this->call($method, ChatInviteLinkType::class);
+    }
+
 
     /**
      * @throws ResponseException

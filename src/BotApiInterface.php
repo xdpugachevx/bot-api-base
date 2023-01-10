@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace TgBotApi\BotApiBase;
 
 use TgBotApi\BotApiBase\Exception\ResponseException;
+use TgBotApi\BotApiBase\Method\CreateChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\ExportChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\GetChatAdministratorsMethod;
 use TgBotApi\BotApiBase\Method\GetChatMemberMethod;
@@ -20,6 +21,7 @@ use TgBotApi\BotApiBase\Method\GetWebhookInfoMethod;
 use TgBotApi\BotApiBase\Method\Interfaces\MethodInterface;
 use TgBotApi\BotApiBase\Method\SendChatActionMethod;
 use TgBotApi\BotApiBase\Method\SendMediaGroupMethod;
+use TgBotApi\BotApiBase\Type\ChatInviteLinkType;
 use TgBotApi\BotApiBase\Type\ChatMemberType;
 use TgBotApi\BotApiBase\Type\ChatType;
 use TgBotApi\BotApiBase\Type\FileType;
@@ -45,6 +47,15 @@ interface BotApiInterface extends BotApiAliasInterface
      * @return mixed
      */
     public function call(MethodInterface $method, string $type = null);
+
+    /**
+     * @param CreateChatInviteLinkMethod $method
+     * 
+     * @throws ResponseException
+     * 
+     * @return ChatInviteLinkType
+     */
+    public function createChatInviteLink(CreateChatInviteLinkMethod $method): ChatInviteLinkType;
 
     /**
      * @param ExportChatInviteLinkMethod $method
