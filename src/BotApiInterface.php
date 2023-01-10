@@ -50,9 +50,9 @@ interface BotApiInterface extends BotApiAliasInterface
 
     /**
      * @param CreateChatInviteLinkMethod $method
-     * 
+     *
      * @throws ResponseException
-     * 
+     *
      * @return ChatInviteLinkType
      */
     public function createChatInviteLink(CreateChatInviteLinkMethod $method): ChatInviteLinkType;

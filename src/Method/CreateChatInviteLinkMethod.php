@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace TgBotApi\BotApiBase\Method;
 
+use TgBotApi\BotApiBase\Exception\BadArgumentException;
 use TgBotApi\BotApiBase\Method\Interfaces\MethodInterface;
 use TgBotApi\BotApiBase\Method\Traits\ChatIdVariableTrait;
+use TgBotApi\BotApiBase\Method\Traits\FillFromArrayTrait;
 
 /**
  * Class CreateChatInviteLinkMethod.
@@ -14,6 +16,7 @@ use TgBotApi\BotApiBase\Method\Traits\ChatIdVariableTrait;
  */
 class CreateChatInviteLinkMethod implements MethodInterface
 {
+    use FillFromArrayTrait;
     use ChatIdVariableTrait;
 
     /**
@@ -48,13 +51,19 @@ class CreateChatInviteLinkMethod implements MethodInterface
 
     /**
      * @param int|string $chatId
+     * @param array|null $data
+     *
+     * @throws BadArgumentException
      *
      * @return CreateChatInviteLinkMethod
      */
-    public static function create($chatId): CreateChatInviteLinkMethod
+    public static function create($chatId, array $data = null): CreateChatInviteLinkMethod
     {
         $instance = new static();
         $instance->chatId = $chatId;
+        if ($data) {
+            $instance->fill($data);
+        }
 
         return $instance;
     }
