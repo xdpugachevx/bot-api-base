@@ -11,6 +11,7 @@ use TgBotApi\BotApiBase\Method\CreateChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\ExportChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\Interfaces\MethodInterface;
 use TgBotApi\BotApiBase\Method\LogOutMethod;
+use TgBotApi\BotApiBase\Method\RevokeChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\SendChatActionMethod;
 use TgBotApi\BotApiBase\Method\SendMediaGroupMethod;
 use TgBotApi\BotApiBase\Method\StopPollMethod;
@@ -84,8 +85,10 @@ class BotApi implements BotApiInterface
     }
 
     /**
+     * @param CreateChatInviteLinkMethod $method
+     *
      * @throws ResponseException
-     * 
+     *
      * @return ChatInviteLinkType
      */
     public function createChatInviteLink(CreateChatInviteLinkMethod $method): ChatInviteLinkType
@@ -93,6 +96,17 @@ class BotApi implements BotApiInterface
         return $this->call($method, ChatInviteLinkType::class);
     }
 
+    /**
+     * @param RevokeChatInviteLinkMethod $method
+     *
+     * @throws ResponseException
+     *
+     * @return ChatInviteLinkType
+     */
+    public function revokeChatInviteLink(RevokeChatInviteLinkMethod $method): ChatInviteLinkType
+    {
+        return $this->call($method, ChatInviteLinkType::class);
+    }
 
     /**
      * @throws ResponseException

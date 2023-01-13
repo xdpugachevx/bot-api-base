@@ -19,6 +19,7 @@ use TgBotApi\BotApiBase\Method\GetUpdatesMethod;
 use TgBotApi\BotApiBase\Method\GetUserProfilePhotosMethod;
 use TgBotApi\BotApiBase\Method\GetWebhookInfoMethod;
 use TgBotApi\BotApiBase\Method\Interfaces\MethodInterface;
+use TgBotApi\BotApiBase\Method\RevokeChatInviteLinkMethod;
 use TgBotApi\BotApiBase\Method\SendChatActionMethod;
 use TgBotApi\BotApiBase\Method\SendMediaGroupMethod;
 use TgBotApi\BotApiBase\Type\ChatInviteLinkType;
@@ -56,6 +57,15 @@ interface BotApiInterface extends BotApiAliasInterface
      * @return ChatInviteLinkType
      */
     public function createChatInviteLink(CreateChatInviteLinkMethod $method): ChatInviteLinkType;
+
+    /**
+     * @param RevokeChatInviteLinkMethod $method
+     *
+     * @throws ResponseException
+     *
+     * @return ChatInviteLinkType
+     */
+    public function revokeChatInviteLink(RevokeChatInviteLinkMethod $method): ChatInviteLinkType;
 
     /**
      * @param ExportChatInviteLinkMethod $method
