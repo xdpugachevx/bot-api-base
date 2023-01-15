@@ -14,12 +14,14 @@ use TgBotApi\BotApiBase\Method\GetFileMethod;
 use TgBotApi\BotApiBase\Method\GetGameHighScoresMethod;
 use TgBotApi\BotApiBase\Method\GetMeMethod;
 use TgBotApi\BotApiBase\Method\GetMyCommandsMethod;
+use TgBotApi\BotApiBase\Method\GetMyDefaultAdministratorRightsMethod;
 use TgBotApi\BotApiBase\Method\GetStickerSetMethod;
 use TgBotApi\BotApiBase\Method\GetUpdatesMethod;
 use TgBotApi\BotApiBase\Method\GetUserProfilePhotosMethod;
 use TgBotApi\BotApiBase\Method\GetWebhookInfoMethod;
 use TgBotApi\BotApiBase\Method\Interfaces\MethodInterface;
 use TgBotApi\BotApiBase\Type\BotCommandType;
+use TgBotApi\BotApiBase\Type\ChatAdministratorRightsType;
 use TgBotApi\BotApiBase\Type\ChatMemberType;
 use TgBotApi\BotApiBase\Type\ChatType;
 use TgBotApi\BotApiBase\Type\FileType;
@@ -68,6 +70,18 @@ trait GetMethodTrait
     public function getMyCommands(GetMyCommandsMethod $method): array
     {
         return $this->call($method, BotCommandType::class . '[]');
+    }
+
+    /**
+     * @param GetMyDefaultAdministratorRightsMethod $method
+     *
+     * @throws ResponseException
+     *
+     * @return ChatAdministratorRightsType
+     */
+    public function getMyDefaultAdministratorRights(GetMyDefaultAdministratorRightsMethod $method): ChatAdministratorRightsType
+    {
+        return $this->call($method, ChatAdministratorRightsType::class);
     }
 
     /**
