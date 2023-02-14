@@ -24,6 +24,15 @@ class ReplyKeyboardMarkupType
     public $keyboard;
 
     /**
+     * Optional. Requests clients to always show the keyboard when the
+     * regular keyboard is hidden. Defaults to false, in which case the custom
+     * keyboard can be hidden and opened with a keyboard icon.
+     *
+     * @var bool|null
+     */
+    public $isPersistent;
+
+    /**
      * Optional. Requests clients to resize the keyboard vertically for optimal fit (e.g., make the keyboard smaller
      * if there are just two rows of buttons). Defaults to false, in which case the custom keyboard is always
      * of the same height as the app's standard keyboard.
